@@ -22,8 +22,11 @@ class Picture {  //class must be started from capital letter
     getPrice() {
         return `$${this.price}`;
     }
+
     getInStock() {
-        return `${this.inStock}`;
+        const inStock = 'In Stock';
+        const OutOfStock = 'Out Of Stock';
+        return (this.inStock ? inStock : OutOfStock);
     }
 
 }
