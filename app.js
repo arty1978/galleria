@@ -18,6 +18,7 @@ window.searchPic = function () {
 function displayGallery(pics) {
     //pics structure 
     const picsContainer = document.querySelector('.container');
+    const sortPics = document.getElementById('sort-field');
     let html = '';
 
     //pics = pictures
@@ -38,7 +39,14 @@ function displayGallery(pics) {
             </div>`;
     });
     picsContainer.innerHTML = html;
+
 }
+// if (sortPics.value === 'asc') {
+//     displayGallery(pictures);
+
+// } else {
+//     displayGallery(pictures);
+// }
 displayGallery(pictures);
 
 // Pictures availibility check 
@@ -63,19 +71,36 @@ function Availibility(picElement) {
         }
     }
 }
-    // using forEach Method
-//     pictures.forEach((picElement, i) => {
-//         if (picElement.inStock) {
-//             const inStock = document.querySelectorAll('.stock');
-//             inStock[i].style.color = 'green';
-//         } else {
-//             const inStock = document.querySelectorAll('.stock');
-//             inStock[i].style.color = 'red';
-//             inStock[i].style.fontWeight = '900';
-//             inStock[i].style.fontSize = '1.5rem';
-//         }
-//     });
-// }
+
+function sortZtoA(picsArray) {
+    let sortPics = picsArray.sort((a, b) => {
+        if (a.title < b.title) {
+            return 1;
+        }
+        if (a.title > b.title) {
+            return -1;
+        }
+        return 0;
+    });
+    //  const sortPics = pictures.title;
+    console.log(11111, sortPics);
+}
 
 
+function sortAtoZ(picsArray) {
+    const localArray = [...picsArray];
+    let sortPics = localArray.sort((a, b) => {
+        if (a.title < b.title) {
+            return -1;
+        }
+        if (a.title > b.title) {
+            return 1;
+        }
+        return 0;
+    });
+    console.log(22222, sortPics);
+}
+
+sortAtoZ(pictures);
+sortZtoA(pictures);
 
