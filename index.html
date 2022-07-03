@@ -22,8 +22,10 @@
                 <button id="" onclick="searchPic()" type="button">Search</button>
             </form>
             <select name="sort" id="sort-field">
-                <option value="asc">A-Z</option>
-                <option value="desc">Z-A</option>
+                <option value="desc" onselect="sortZtoA(pictures)">Z-A</option>
+                <option value="asc" onselect="sortAtoZ(pictures)">A-Z</option>
+                <!-- onchange="sortAtoZ(pictures)" -->
+                <!-- onchange="sortZtoA(pictures)" -->
             </select>
         </div>
 

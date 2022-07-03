@@ -34,7 +34,7 @@ class Picture {  //class must be started from capital letter
 const pictures = [
     new Picture(
         '0061665_-.jpeg',
-        'sheep',
+        'Sheep',
         'Menashe Kadishman',
         20000,
         false
