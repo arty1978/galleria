@@ -2,23 +2,13 @@ import { pictures } from "./data/pictures.js";
 let pictures1 = [];
 
 document.getElementById("sort-field").addEventListener("change", function () {
-  // document.getElementById("sort-field").onchange = function () {
   let sortArray = document.getElementById("sort-field");
-  // let str = sortArray.options[sortArray.selectedIndex].value;
-  // console.log("str value", str);
-  // if (sortArray.value === str) {
-  //   sortAtoZ(pictures);
-  // } else {
-  //   sortZtoA(pictures);
-  // }
   sortArray.value === "asc" ? sortAtoZ(pictures) : sortZtoA(pictures);
-  //   sortArray.value === "desc" ? sortZtoA(pictures): sortAtoZ(pictures);
-  // console.log('sortArray.value',sortArray);
 });
 
 window.searchPic = function () {
   const searchField = document.getElementById("search-field");
-  const searchTerm = searchField.value.trim(); // ' tab '.trim() => 'tab'
+  const searchTerm = searchField.value.trim();
 
   const searchResult = pictures.filter((pic) => {
     if (searchField.value === "author") {
@@ -68,7 +58,6 @@ function sortAtoZ(pictures) {
   pictures1 = localArray;
 
   console.log("pictures1 Array", pictures1);
-  Availibility(pictures1);
   displayGallery(pictures1);
 }
 
@@ -77,7 +66,6 @@ function displayGallery(pictures1) {
   const picsContainer = document.querySelector(".container");
   let html = "";
 
-  //pics = pictures
   pictures1.forEach((picElement) => {
     html += `<div class="card" style="width: 18rem;">
                                 <h3 name of the work of art class="card-title">Name of the art work: 
@@ -113,3 +101,5 @@ function Availibility(picElement) {
     }
   }
 }
+
+Availibility(pictures1);
