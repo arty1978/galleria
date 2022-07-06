@@ -1,5 +1,4 @@
 import { pictures } from "./data/pictures.js";
-let pictures1 = [];
 
 document.getElementById("sort-field").addEventListener("change", function () {
   let sortArray = document.getElementById("sort-field");
@@ -36,16 +35,14 @@ function sortZtoA(pictures) {
     return 0;
   });
 
-  console.log(22222, sortDesc);
-  pictures1 = sortDesc;
-  console.log("pictures1 Array", pictures1);
-  displayGallery(pictures1);
+  displayGallery(sortDesc);
+  Availibility(sortDesc);
 }
 
 function sortAtoZ(pictures) {
-  let localArray = [...pictures];
+  let sortAsc = [...pictures];
 
-  localArray.sort((a, b) => {
+  sortAsc.sort((a, b) => {
     if (a.title < b.title) {
       return -1;
     }
@@ -54,11 +51,9 @@ function sortAtoZ(pictures) {
     }
     return 0;
   });
-  console.log(11111, localArray);
-  pictures1 = localArray;
 
-  console.log("pictures1 Array", pictures1);
-  displayGallery(pictures1);
+  displayGallery(sortAsc);
+  Availibility(sortAsc);
 }
 
 function displayGallery(pictures1) {
@@ -88,7 +83,6 @@ displayGallery(pictures);
 function Availibility(picElement) {
   for (let i = 0; i < picElement.length; i++) {
     if (picElement[i].inStock) {
-      console.log(picElement[i].inStock);
       const inStock = document.querySelectorAll(".stock");
       inStock[i].style.color = "green";
       console.log(inStock[i].style.color);
@@ -101,5 +95,4 @@ function Availibility(picElement) {
     }
   }
 }
-
-Availibility(pictures1);
+Availibility(pictures);
