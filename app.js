@@ -10,7 +10,9 @@ window.searchPic = function () {
   const searchTerm = searchField.value.trim();
 
   const searchResult = pictures.filter((pic) => {
-    if (searchField.value === "author") {
+    const searchBy = document.getElementById("searchBy");
+    if (searchBy.value === "author") {
+      console.log(searchField.value);
       return pic.author.toLowerCase().includes(searchTerm.toLowerCase());
     } else {
       return pic.title.toLowerCase().includes(searchTerm.toLowerCase());
@@ -18,7 +20,6 @@ window.searchPic = function () {
   });
   sortAtoZ(pictures);
   sortZtoA(pictures);
-  console.log(searchResult);
   displayGallery(searchResult);
 };
 
@@ -84,8 +85,8 @@ function Availibility(picElement) {
   for (let i = 0; i < picElement.length; i++) {
     if (picElement[i].inStock) {
       const inStock = document.querySelectorAll(".stock");
-      inStock[i].style.color = "green";
-      console.log(inStock[i].style.color);
+      inStock[i].style.color = "lime";
+      inStock[i].style.fontWeight = "500";
       inStock[i].style.fontSize = "1.5rem";
     } else {
       const inStock = document.querySelectorAll(".stock");
