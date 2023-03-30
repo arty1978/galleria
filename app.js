@@ -21,6 +21,7 @@ window.searchPic = function () {
   sortAtoZ(pictures);
   sortZtoA(pictures);
   displayGallery(searchResult);
+  Availibility(searchResult);
 };
 
 function sortZtoA(pictures) {
